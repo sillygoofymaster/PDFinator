@@ -1,0 +1,74 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>PDFinator</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="libs/pdfjs/pdf.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'libs/pdfjs/pdf.worker.js';
+    </script>
+    <script src="js/tags.js" defer></script>
+</head>
+<body>
+    <div id="page-wrapper">
+
+        <section id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1><a href="index.html" id="logo">PDFinator</a></h1>
+                        <nav id="nav">
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div id="banner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 col-12-medium">
+                            <h2>Manage your PDFs. </h2>
+                            <button onclick="showAddForm()">Add PDF</button>
+                            <div id="addPdf" style="display:none; margin-top:20px;">
+                                <h3>Add PDF</h3>
+                                <form action="javascript:void(0);" onsubmit="return pdfAdd()" enctype="multipart/form-data">
+                                    <input type="text" id="add-title" placeholder="Title" required />
+                                    <input type="text" id="add-abstract" placeholder="Abstract" />
+                                    <input type="text" id="add-author" placeholder="Author" />
+                                    <input type="file" id="add-file" accept=".pdf" required />
+                                    <input type="submit" value="Add PDF" />
+                                    <button type="button" onclick="hideForms()">Cancel</button>
+                                </form>
+                            </div>
+                            <div id="editPdf" style="display:none; margin-top:20px;">
+                                <h3>Edit PDF</h3>
+                                <form action="javascript:void(0);" onsubmit="return updatePdf()">
+                                    <input type="hidden" id="edit-id" />
+                                    <input type="text" id="edit-title" placeholder="Title" required />
+                                    <input type="text" id="edit-abstract" placeholder="Abstract" />
+                                    <input type="text" id="edit-author" placeholder="Author" />
+                                    <input type="submit" value="Save Changes" />
+                                    <button type="button" onclick="hideForms()">Cancel</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-6 col-12-medium imp-medium">
+                            <a href="#" class="bordered-feature-image">
+                                <img src="images/banner2.jpg" alt="Banner" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <div class="row" id="pdfsContainer">
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

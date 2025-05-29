@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Tag Manager</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Tag Manager</h1>
+    <p>
+        <a href="PDFIndex.html">Go to Page 2</a>
+    </p>
+    <p>
+        <a href="test.html">Go to Page 3</a>
+    </p>
+
+    <h3>Add Tag</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addTag()">
+        <input type="text" id="add-name" placeholder="New Tag Name" required>
+        <input type="submit" value="Add">
+    </form>
+
+    <div id="editTag" style="display:none;">
+        <h3>Edit Tag</h3>
+        <form action="javascript:void(0);" onsubmit="updateTag()">
+            <input type="hidden" id="edit-id">
+            <input type="text" id="edit-name" required>
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Slug</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="tags"></tbody>
+    </table>
+
+    <script src="js/tags.js"></script>
+    <script>
+        getTags();
+    </script>
+</body>
+</html>
